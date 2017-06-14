@@ -10,7 +10,7 @@
     @foreach ($options as $key => $option)
         <label class="checkbox {{ $labelClass ?? '' }}" for="{{ $name }}">
             <input type="checkbox"
-                   {{ ($value ?? old($name)) ? 'checked' : '' }}
+                   {{ (isset($values) && in_array($key, $values)) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
                    id="{{ $name . '_' . $key }}"
                    name="{{ $name }}"

@@ -1,7 +1,9 @@
 @extends('components.form.form-group')
 
 @section('label')
-    <label for="{{ $name }}" class="form__label">{{ $labelText }}</label>
+    @if(isset($labelText))
+        <span class="form__label">{{ $labelText }}</span>
+    @endif
 @overwrite
 
 @section('input')

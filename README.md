@@ -47,11 +47,78 @@ PodPoint\FormComponents\FormComponentsServiceProvider::class,
 Then you will be able to access the components with the `form::` package prefix.
 
 ```php
-@extends('form::_components.button')
-@extends('form::_components.checkbox')
-@extends('form::_components.file-upload')
-@extends('form::_components.input')
-@extends('form::_components.radio')
-@extends('form::_components.select')
-@extends('form::_components.textarea')
+@include('form::_components.checkbox', [
+    'name'        => 'myCheckbox',
+    'labelText'   => 'Choose option(s)', // optional
+    'labelClass'  => 'font-huge', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2'
+    ],
+    'values'      => ['option1'], // optional
+])
+```
+```php
+@include('form::_components.file-upload', [
+    'name'       => 'myUpload',
+    'labelText'  => 'Upload your file',
+    'labelClass' => 'font-huge', // optional
+])
+```
+```php
+@include('form::_components.input', [
+    'name'       => 'myTextbox',
+    'labelText'  => 'Type here',
+    'labelClass' => 'font-huge', // optional
+    'value'      => 'Some text', // optional
+])
+```
+```php
+@include('form::_components.radio', [
+    'name'        => 'myRadio',
+    'labelText'   => 'Choose an option', // optional
+    'labelClass'  => 'font-huge', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2'
+    ],
+    'value'       => 'option1', // optional
+])
+```
+```php
+@include('form::_components.select', [
+    'name'        => 'mySelect',
+    'labelText'   => 'Choose an option', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2'
+    ],
+    'value'       => 'option1', // optional
+])
+```
+```php
+@include('form::_components.textarea', [
+    'name'       => 'myTextarea',
+    'labelText'  => 'Type here',
+    'labelClass' => 'font-huge', // optional
+    'value'      => 'Some text', // optional
+])
+```
+```php
+@include('form::_components.button', [
+    'buttons' => [
+        [
+            'element' => 'button',
+            'type'    => 'submit',
+            'text'    => 'Submit',
+            'class'   => 'button--secondary', // optional
+        ],
+        [
+            'element' => 'a',
+            'href'    => 'http://somewhere.com',
+            'text'    => 'Cancel',
+            'class'   => 'button--secondary', // optional
+        ],
+    ],
+])
 ```
