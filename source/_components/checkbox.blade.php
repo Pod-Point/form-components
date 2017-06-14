@@ -20,28 +20,3 @@
         </label>
     @endforeach
 @overwrite
-
-
-
-
-
-
-
-{{--@extends('components.form.form-group')--}}
-
-{{--@section('label')--}}
-
-{{--@overwrite--}}
-
-{{--@section('input')--}}
-    {{--<div class="checkbox-wrap {{ ($value ?? old($name)) ? 'has-content' : '' }}">--}}
-        {{--<input type="checkbox"--}}
-               {{--{{ ($value ?? old($name)) ? 'checked' : '' }}--}}
-               {{--id="{{ $name }}"--}}
-               {{--name="{{ $name }}"--}}
-               {{--value="{{ $default ?? 'true' }}">--}}
-        {{--<label class="checkbox {{ $labelClass ?? '' }}" for="{{ $name }}">--}}
-            {{--{{ $labelText }}--}}
-        {{--</label>--}}
-    {{--</div>--}}
-{{--@overwrite--}}
