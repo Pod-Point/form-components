@@ -6,7 +6,7 @@
 
 @section('input')
     <textarea class="form__control"
-           id="{{ $name }}"
-           name="{{ $name }}"
+       id="{{ $name }}"
+       name="{{ $name }}"
     >{{ $value ?? old($name) }}</textarea>
 @overwrite
