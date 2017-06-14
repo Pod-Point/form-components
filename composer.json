@@ -1,0 +1,16 @@
+{
+    "name": "pod-point/form-components",
+    "description": "Form components for POD Point websites",
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "PodPoint\\FormComponents\\": "src"
+        }
+    }
+}
