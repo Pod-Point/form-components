@@ -55,7 +55,7 @@ Then you will be able to access the components with the `form::` package prefix.
         'option1' => 'Option 1',
         'option2' => 'Option 2',
     ],
-    'values'      => ['option1'], // optional
+    'values'      => ['option1'], // optional default selected
     'disabled'    => true, // optional
 ])
 ```
@@ -72,7 +72,7 @@ Then you will be able to access the components with the `form::` package prefix.
     'name'       => 'myTextbox',
     'labelText'  => 'Type here',
     'labelClass' => 'font-huge', // optional
-    'value'      => 'Some text', // optional
+    'value'      => 'Some text', // optional default value
     'disabled'   => true, // optional
 ])
 ```
@@ -83,9 +83,9 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelClass'  => 'font-huge', // optional
     'options'     => [
         'option1' => 'Option 1',
-        'option2' => 'Option 2'
+        'option2' => 'Option 2',
     ],
-    'value'       => 'option1', // optional
+    'value'       => 'option1', // optional default selected
     'disabled'    => true, // optional
 ])
 ```
@@ -95,9 +95,9 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelText'   => 'Choose an option', // optional
     'options'     => [
         'option1' => 'Option 1',
-        'option2' => 'Option 2'
+        'option2' => 'Option 2',
     ],
-    'value'       => 'option1', // optional
+    'value'       => 'option1', // optional default selected
     'disabled'    => true, // optional
 ])
 ```
@@ -106,7 +106,7 @@ Then you will be able to access the components with the `form::` package prefix.
     'name'       => 'myTextarea',
     'labelText'  => 'Type here',
     'labelClass' => 'font-huge', // optional
-    'value'      => 'Some text', // optional
+    'value'      => 'Some text', // optional default value
     'disabled'   => true, // optional
 ])
 ```
@@ -124,7 +124,7 @@ Then you will be able to access the components with the `form::` package prefix.
             'element'  => 'a',
             'href'     => 'https://somewhere.com',
             'text'     => 'Cancel',
-            'class'    => 'button--secondary', // optional
+            'class'    => 'button--secondary',
             'disabled' => true, // optional
         ],
     ],
