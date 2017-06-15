@@ -14,8 +14,8 @@
                    id="{{ $name . '_' . $key }}"
                    name="{{ $name }}"
                    value="{{ $key }}"
-                    {{ isset($value) && $key === $value ? 'checked' : '' }}
-                    {{ isset($disabled) ? 'disabled' : '' }}
+                   {{ $key === old($name, isset($value) ? $value : null) ? 'checked' : '' }}
+                   {{ isset($disabled) ? 'disabled' : '' }}
             >
             <span>{{ $option }}</span>
         </label>

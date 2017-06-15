@@ -53,9 +53,10 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelClass'  => 'font-huge', // optional
     'options'     => [
         'option1' => 'Option 1',
-        'option2' => 'Option 2'
+        'option2' => 'Option 2',
     ],
     'values'      => ['option1'], // optional
+    'disabled'    => true, // optional
 ])
 ```
 ```php
@@ -63,6 +64,7 @@ Then you will be able to access the components with the `form::` package prefix.
     'name'       => 'myUpload',
     'labelText'  => 'Upload your file',
     'labelClass' => 'font-huge', // optional
+    'disabled'   => true, // optional
 ])
 ```
 ```php
@@ -71,6 +73,7 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelText'  => 'Type here',
     'labelClass' => 'font-huge', // optional
     'value'      => 'Some text', // optional
+    'disabled'   => true, // optional
 ])
 ```
 ```php
@@ -83,6 +86,7 @@ Then you will be able to access the components with the `form::` package prefix.
         'option2' => 'Option 2'
     ],
     'value'       => 'option1', // optional
+    'disabled'    => true, // optional
 ])
 ```
 ```php
@@ -94,6 +98,7 @@ Then you will be able to access the components with the `form::` package prefix.
         'option2' => 'Option 2'
     ],
     'value'       => 'option1', // optional
+    'disabled'    => true, // optional
 ])
 ```
 ```php
@@ -102,22 +107,25 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelText'  => 'Type here',
     'labelClass' => 'font-huge', // optional
     'value'      => 'Some text', // optional
+    'disabled'   => true, // optional
 ])
 ```
 ```php
 @include('form::_components.button', [
     'buttons' => [
         [
-            'element' => 'button',
-            'type'    => 'submit',
-            'text'    => 'Submit',
-            'class'   => 'button--secondary', // optional
+            'element'  => 'button',
+            'type'     => 'submit',
+            'text'     => 'Submit',
+            'class'    => 'button--primary',
+            'disabled' => true, // optional
         ],
         [
-            'element' => 'a',
-            'href'    => 'http://somewhere.com',
-            'text'    => 'Cancel',
-            'class'   => 'button--secondary', // optional
+            'element'  => 'a',
+            'href'     => 'https://somewhere.com',
+            'text'     => 'Cancel',
+            'class'    => 'button--secondary', // optional
+            'disabled' => true, // optional
         ],
     ],
 ])

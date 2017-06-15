@@ -4,6 +4,7 @@
             class="button {{ $button['class'] ?? '' }}"
             {!! isset($button['type']) ? "type=\"{$button['type']}\"" : '' !!}
             {!! isset($button['href']) ? "href=\"{$button['href']}\"" : '' !!}
+            {{ isset($button['disabled']) ? 'disabled' : '' }}
         >
             {{ $button['text'] }}
         </{{ $button['element'] }}>

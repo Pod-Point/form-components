@@ -9,5 +9,6 @@
            type="file"
            id="{{ $name }}"
            name="{{ $name }}"
+           {{ isset($disabled) ? 'disabled' : '' }}
     >
 @overwrite

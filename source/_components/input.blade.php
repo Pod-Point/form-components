@@ -11,9 +11,10 @@
            type="{{ $type }}"
            id="{{ $name }}"
            name="{{ $name }}"
+           {{ isset($disabled) ? 'disabled' : '' }}
            placeholder="{{ $placeholder ?? '' }}"
            @if ($type !== 'password')
-           value="{{ $value ?? old($name) }}"
-            @endif
+                value="{{ old($name, isset($value) ? $value : '') }}"
+           @endif
     >
 @overwrite

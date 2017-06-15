@@ -7,15 +7,19 @@
 @overwrite
 
 @section('input')
+    @php
+        $values = old($name, (isset($values) ? $values : []));
+        $values = gettype($values) === 'string' ? array($values => $values) : $values;
+    @endphp
     @foreach ($options as $key => $option)
-        <label class="checkbox {{ $labelClass ?? '' }}" for="{{ $name }}">
+        <label class="checkbox {{ $labelClass ?? '' }}" for="{{ count($options) === 1 ? $name : $name . '_' . $key }}">
             <input type="checkbox"
-                   {{ (isset($values) && in_array($key, $values)) ? 'checked' : '' }}
+                   name="{{ count($options) === 1 ? $name : $name . '[' . $key . ']' }}"
+                   id="{{ count($options) === 1 ? $name :  $name . '[' . $key . ']' }}"
+                   value="{{ $key }}"
+                   {{ in_array($key, $values) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
-                   id="{{ $name . '_' . $key }}"
-                   name="{{ $name }}"
-                   value="{{ $key ?? 'true' }}">
-
+            >
             <span>{{ $option }}</span>
         </label>
     @endforeach

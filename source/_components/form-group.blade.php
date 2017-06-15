@@ -3,7 +3,6 @@
 
     <div class="form-field-wrapper">
         @yield('input')
-
         {!! $errors->first($name, '<span class="form__error">:message</span>') !!}
     </div>
 
