@@ -1,4 +1,4 @@
-@extends('components.form.form-group')
+@extends('form-group')
 
 @section('label')
     @if(isset($labelText))
@@ -14,7 +14,7 @@
                    id="{{ $name . '_' . $key }}"
                    name="{{ $name }}"
                    value="{{ $key }}"
-                   {{ $key === old($name, isset($value) ? $value : null) ? 'checked' : '' }}
+                   {{ $key === ((isset($app) ? old($name, $value ?? null) : ($value ?? null))) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
             >
             <span>{{ $option }}</span>

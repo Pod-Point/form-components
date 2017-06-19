@@ -1,20 +1,22 @@
-@extends('components.form.form-group')
-
-@php($type = $type ?? 'text')
+@extends('form-group')
 
 @section('label')
     <label class="form__label {{ $labelClass ?? '' }}" for="{{ $name }}">{{ $labelText }}</label>
 @overwrite
 
 @section('input')
+    @php
+        $value = $value ?? '';
+    @endphp
+
     <input class="form__control"
-           type="{{ $type }}"
+           type="{{ $type ?? 'text' }}"
            id="{{ $name }}"
            name="{{ $name }}"
-           placeholder="{{ $placeholder ?? '' }}"
            @if ($type !== 'password')
-                value="{{ old($name, isset($value) ? $value : '') }}"
+                value="{{ isset($app) ? old($name, $value) : $value }}"
            @endif
+           placeholder="{{ $placeholder ?? '' }}"
            {{ isset($disabled) ? 'disabled' : '' }}
     >
 @overwrite

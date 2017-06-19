@@ -1,4 +1,4 @@
-@extends('components.form.form-group')
+@extends('form-group')
 
 @section('label')
     @if(isset($labelText))
@@ -8,7 +8,8 @@
 
 @section('input')
     @php
-        $values = old($name, (isset($values) ? $values : []));
+        $values = isset($app) ? old($name, ($values ?? [])) : $values ?? [];
+        // If value previously set by user and it is a single checkbox, old will return string
         $values = gettype($values) === 'string' ? array($values => $values) : $values;
     @endphp
     @foreach ($options as $key => $option)

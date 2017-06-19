@@ -69,11 +69,13 @@ Then you will be able to access the components with the `form::` package prefix.
 ```
 ```php
 @include('form::_components.input', [
-    'name'       => 'myTextbox',
-    'labelText'  => 'Type here',
-    'labelClass' => 'font-huge', // optional
-    'value'      => 'Some text', // optional default value
-    'disabled'   => true, // optional
+    'name'        => 'myTextbox',
+    'type'        => 'text', // optional, defaults to 'text'
+    'labelText'   => 'Type here',
+    'labelClass'  => 'font-huge', // optional
+    'value'       => 'Some text', // optional default value
+    'placeholder' => 'Some hint', // optional
+    'disabled'    => true, // optional
 ])
 ```
 ```php
@@ -107,6 +109,7 @@ Then you will be able to access the components with the `form::` package prefix.
     'labelText'  => 'Type here',
     'labelClass' => 'font-huge', // optional
     'value'      => 'Some text', // optional default value
+    'placeholder' => 'Some hint', // optional
     'disabled'   => true, // optional
 ])
 ```
