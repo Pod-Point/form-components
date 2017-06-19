@@ -47,11 +47,89 @@ PodPoint\FormComponents\FormComponentsServiceProvider::class,
 Then you will be able to access the components with the `form::` package prefix.
 
 ```php
-@extends('form::_components.button')
-@extends('form::_components.checkbox')
-@extends('form::_components.file-upload')
-@extends('form::_components.input')
-@extends('form::_components.radio')
-@extends('form::_components.select')
-@extends('form::_components.textarea')
+@include('form::_components.checkbox', [
+    'name'        => 'myCheckbox',
+    'labelText'   => 'Choose option(s)', // optional
+    'labelClass'  => 'font-huge', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2',
+    ],
+    'values'      => ['option1'], // optional default selected
+    'disabled'    => true, // optional
+])
+```
+```php
+@include('form::_components.file-upload', [
+    'name'       => 'myUpload',
+    'labelText'  => 'Upload your file',
+    'labelClass' => 'font-huge', // optional
+    'disabled'   => true, // optional
+])
+```
+```php
+@include('form::_components.input', [
+    'name'        => 'myTextbox',
+    'type'        => 'text', // optional, defaults to 'text'
+    'labelText'   => 'Type here',
+    'labelClass'  => 'font-huge', // optional
+    'value'       => 'Some text', // optional default value
+    'placeholder' => 'Some hint', // optional
+    'disabled'    => true, // optional
+])
+```
+```php
+@include('form::_components.radio', [
+    'name'        => 'myRadio',
+    'labelText'   => 'Choose an option', // optional
+    'labelClass'  => 'font-huge', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2',
+    ],
+    'value'       => 'option1', // optional default selected
+    'disabled'    => true, // optional
+])
+```
+```php
+@include('form::_components.select', [
+    'name'        => 'mySelect',
+    'labelText'   => 'Choose an option', // optional
+    'options'     => [
+        'option1' => 'Option 1',
+        'option2' => 'Option 2',
+    ],
+    'value'       => 'option1', // optional default selected
+    'disabled'    => true, // optional
+])
+```
+```php
+@include('form::_components.textarea', [
+    'name'       => 'myTextarea',
+    'labelText'  => 'Type here',
+    'labelClass' => 'font-huge', // optional
+    'value'      => 'Some text', // optional default value
+    'placeholder' => 'Some hint', // optional
+    'disabled'   => true, // optional
+])
+```
+```php
+@include('form::_components.button', [
+    'buttons' => [
+        [
+            'element'  => 'button', // optional - defaults to button
+            'type'     => 'submit',
+            'text'     => 'Submit',
+            'class'    => 'button--primary',
+            'disabled' => true, // optional
+        ],
+        [
+            'element'  => 'a',
+            'href'     => 'https://somewhere.com',
+            'text'     => 'Cancel',
+            'class'    => 'button--secondary',
+            'disabled' => true, // optional
+        ],
+    ],
+])
 ```
