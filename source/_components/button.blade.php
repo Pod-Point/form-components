@@ -1,6 +1,6 @@
 <div class="form-action-buttons">
     @foreach ($buttons as $button)
-        <{{ $button['element'] }}
+        <{{ $button['element'] ?? 'button' }}
             class="button {{ $button['class'] ?? '' }}"
             {!! isset($button['type']) ? "type=\"{$button['type']}\"" : '' !!}
             {!! isset($button['href']) ? "href=\"{$button['href']}\"" : '' !!}

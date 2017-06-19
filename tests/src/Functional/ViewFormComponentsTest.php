@@ -9,7 +9,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that a single checkbox displays correctly with the options passed to it.
      */
-    public function testCheckboxDisplaysWithCorrectOptions() {
+    public function testCheckboxDisplaysWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someCheckbox',
             'labelText'   => 'Choose option',
@@ -37,7 +38,8 @@ class ViewFormComponentsTest extends TestCase {
      * Check that multiple checkboxes displays correctly with the options passed to them
      * - multiple group checkboxes are named slightly differently to singe checkboxes.
      */
-    public function testCheckboxesDisplayWithCorrectOptions() {
+    public function testCheckboxesDisplayWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someCheckbox',
             'labelText'   => 'Choose option(s)',
@@ -68,7 +70,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that a text input displays correctly with the options passed to it.
      */
-    public function testInputDisplaysWithCorrectOptions() {
+    public function testInputDisplaysWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someTextbox',
             'type'        => 'text',
@@ -94,7 +97,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that a file upload input displays correctly with the options passed to it.
      */
-    public function testFileUploadDisplaysWithCorrectOptions() {
+    public function testFileUploadDisplaysWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someFileUploader',
             'labelText'   => 'Upload a file',
@@ -114,7 +118,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that radio buttons display correctly with the options passed to them.
      */
-    public function testRadiosDisplayWithCorrectOptions() {
+    public function testRadiosDisplayWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someRadioButtons',
             'labelText'   => 'Choose option',
@@ -144,7 +149,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that a select (dropdown) displays correctly with the options passed to it.
      */
-    public function testSelectDisplaysWithCorrectOptions() {
+    public function testSelectDisplaysWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someDropdown',
             'labelText'   => 'Choose option',
@@ -172,7 +178,8 @@ class ViewFormComponentsTest extends TestCase {
     /**
      * Check that a text area displays correctly with the options passed to it.
      */
-    public function testTextAreaDisplaysWithCorrectOptions() {
+    public function testTextAreaDisplaysWithCorrectOptions()
+    {
         $data = [
             'name'        => 'someTextArea',
             'type'        => 'text',

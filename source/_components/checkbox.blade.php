@@ -8,7 +8,11 @@
 
 @section('input')
     @php
-        $values = isset($app) ? old($name, ($values ?? [])) : $values ?? [];
+        if (isset($app)) {
+            $values = old($name, ($values ?? []));
+        } else {
+            $values =  $values ?? [];
+        }
         // If value previously set by user and it is a single checkbox, old will return string
         $values = gettype($values) === 'string' ? array($values => $values) : $values;
     @endphp

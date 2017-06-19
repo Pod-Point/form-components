@@ -38,7 +38,7 @@ abstract class TestCase extends PHPUnitTestCase
      * @param  array   $data
      * @return string
      */
-    protected function renderBladeView($component, $data = array()) {
+    protected function renderBladeView(string $component, $data = []) {
 
         $data = array_add($data, 'errors', new ViewErrorBag());
 

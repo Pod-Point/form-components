@@ -117,7 +117,7 @@ Then you will be able to access the components with the `form::` package prefix.
 @include('form::_components.button', [
     'buttons' => [
         [
-            'element'  => 'button',
+            'element'  => 'button', // optional - defaults to button
             'type'     => 'submit',
             'text'     => 'Submit',
             'class'    => 'button--primary',
