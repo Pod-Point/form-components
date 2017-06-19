@@ -3,7 +3,12 @@
     "description": "Form components for POD Point websites",
     "type": "library",
     "require": {
-        "php": ">=5.5.9"
+        "php": ">=7.0.0",
+        "laravel/framework": "^5.3",
+        "illuminate/view": "^5.3",
+        "laravel/browser-kit-testing": "^1.0",
+        "laravel/laravel": "^5.3",
+        "phpunit/phpunit": "^5.3"
     },
     "require-dev": {
     },
@@ -11,6 +16,11 @@
     "autoload": {
         "psr-4": {
             "PodPoint\\FormComponents\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PodPoint\\FormComponents\\Tests\\": "tests/src/"
         }
     }
 }
