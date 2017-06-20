@@ -47,10 +47,11 @@ abstract class TestCase extends PHPUnitTestCase
             self::COMPONENTS_DIR,
         ];
 
-        $FileViewFinder = new FileViewFinder(
+        $fileViewFinder = new FileViewFinder(
             new Filesystem,
             $viewPaths
         );
+        $fileViewFinder->addNamespace('form', self::COMPONENTS_DIR . '/..');
 
         $compiler = new BladeCompiler(new Filesystem(), self::VIEWS_DIR);
         $bladeEngine = new CompilerEngine($compiler);
@@ -64,7 +65,7 @@ abstract class TestCase extends PHPUnitTestCase
 
         $factory = new Factory(
             $engineResolver,
-            $FileViewFinder,
+            $fileViewFinder,
             $dispatcher
         );
 
