@@ -1,4 +1,4 @@
-@extends('form-group')
+@extends('form::_components.form-group')
 
 @section('label')
     @if(isset($labelText))

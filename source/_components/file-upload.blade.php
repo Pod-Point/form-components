@@ -1,4 +1,4 @@
-@extends('form-group')
+@extends('form::_components.form-group')
 
 @section('label')
     <label class="form__label {{ $labelClass ?? '' }}" for="{{ $name }}">{{ $labelText }}</label>
