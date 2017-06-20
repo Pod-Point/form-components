@@ -13,7 +13,7 @@
            type="{{ $type ?? 'text' }}"
            id="{{ $name }}"
            name="{{ $name }}"
-           @if ($type !== 'password')
+           @if (isset($type) && $type !== 'password')
                 value="{{ isset($app) ? old($name, $value) : $value }}"
            @endif
            placeholder="{{ $placeholder ?? '' }}"
