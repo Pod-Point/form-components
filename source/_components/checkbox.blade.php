@@ -21,7 +21,7 @@
             <input type="checkbox"
                    name="{{ count($options) === 1 ? $name : $name . '[' . $key . ']' }}"
                    id="{{ count($options) === 1 ? $name :  $name . '[' . $key . ']' }}"
-                   value="{{ $key }}"
+                   value="{{ strlen($key) ? $key : 'true' }}"
                    {{ in_array($key, $values) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
             >
