@@ -128,7 +128,6 @@ Then you will be able to access the components with the `form::` package prefix.
             'href'     => 'https://somewhere.com',
             'text'     => 'Cancel',
             'class'    => 'button--secondary',
-            'disabled' => true, // optional
         ],
     ],
 ])
