@@ -72,7 +72,7 @@ abstract class TestCase extends PHPUnitTestCase
         $viewObject = new View(
             $factory,
             $bladeEngine,
-            'blahhh',
+            '',
             $viewPaths[0],
             $data
         );
