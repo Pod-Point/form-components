@@ -19,7 +19,7 @@ abstract class TestCase extends PHPUnitTestCase
     /**
      * The directory where the form components are stored.
      */
-    const COMPONENTS_DIR = __DIR__ . '/../../source/_components';
+    const COMPONENTS_DIR = __DIR__ . '/../../views/_components';
 
     /**
      * The directory where test views are stored.
