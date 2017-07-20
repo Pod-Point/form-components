@@ -7,13 +7,14 @@
 @section('input')
     @php
         $value = $value ?? '';
+        $type  = $type ?? 'text'
     @endphp
 
     <input class="form__control"
-           type="{{ $type ?? 'text' }}"
+           type="{{ $type }}"
            id="{{ $name }}"
            name="{{ $name }}"
-           @if (!isset($type) || $type !== 'password')
+           @if ($type !== 'password')
                 value="{{ isset($app) ? old($name, $value) : $value }}"
            @endif
            placeholder="{{ $placeholder ?? '' }}"
