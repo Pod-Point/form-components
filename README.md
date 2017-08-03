@@ -50,21 +50,38 @@ Then you will be able to access the components with the `form::` package prefix.
 @include('form::_components.checkbox', [
     'name'        => 'myCheckbox',
     'labelText'   => 'Choose option(s)', // optional
-    'labelClass'  => 'font-huge', // optional
     'options'     => [
         'option1' => 'Option 1',
         'option2' => 'Option 2',
     ],
     'values'      => ['option1'], // optional default selected
     'disabled'    => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label span that appears above all checkbox(es) - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'inputContainer' => 'myInputContainerClass', // label element that contains input - defaults to 'checkbox'
+        'input' => 'myInputClass',                   // checkbox input element(s) - defaults to blank
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
 @include('form::_components.file-upload', [
     'name'       => 'myUpload',
     'labelText'  => 'Upload your file',
-    'labelClass' => 'font-huge', // optional
     'disabled'   => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label span that appears above input - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'input' => 'myInputClass',                   // input element - defaults to 'form__control button button--default upload'
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
@@ -72,23 +89,40 @@ Then you will be able to access the components with the `form::` package prefix.
     'name'        => 'myTextbox',
     'type'        => 'text', // optional, defaults to 'text'
     'labelText'   => 'Type here',
-    'labelClass'  => 'font-huge', // optional
     'value'       => 'Some text', // optional default value
     'placeholder' => 'Some hint', // optional
     'disabled'    => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label span that appears above input - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'input' => 'myInputClass',                   // input element - defaults to 'form__control'
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
 @include('form::_components.radio', [
     'name'        => 'myRadio',
     'labelText'   => 'Choose an option', // optional
-    'labelClass'  => 'font-huge', // optional
     'options'     => [
         'option1' => 'Option 1',
         'option2' => 'Option 2',
     ],
     'value'       => 'option1', // optional default selected
     'disabled'    => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label span that appears above all radio button(s) - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'inputContainer' => 'myInputContainerClass', // label element that contains input - defaults to 'form__label radio'
+        'input' => 'myInputClass',                   // radio input element(s) - defaults to 'form__control'
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
@@ -101,16 +135,34 @@ Then you will be able to access the components with the `form::` package prefix.
     ],
     'value'       => 'option1', // optional default selected
     'disabled'    => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label span that appears above dropdown - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'inputContainer' => 'myInputContainerClass', // div element that contains select - defaults to 'select-wrapper'
+        'input' => 'myInputClass',                   // select element - defaults to 'form__control'
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
 @include('form::_components.textarea', [
     'name'       => 'myTextarea',
     'labelText'  => 'Type here',
-    'labelClass' => 'font-huge', // optional
     'value'      => 'Some text', // optional default value
     'placeholder' => 'Some hint', // optional
     'disabled'   => true, // optional
+    'classes' => [ // all optional, each class's default is used unless a value is set (use '' for blank)
+        'fieldRow' => 'myFieldRowClass',             // outermost div - defaults to 'form__group field-row'
+        'hasContent' => 'myHasContentClass',         // outermost div - defaults to 'hasContent' if had value when form previously submitted
+        'hasError' => 'myHasErrorClass',             // outermost div - defaults to 'hasError' if validation error with user input when form previously submitted
+        'label' => 'myLabelClass',                   // text label that appears above input - defaults to 'form__label'
+        'fieldWrapper' => 'myFieldWrapperClass',     // second-level div - defaults to 'form-field-wrapper'
+        'input' => 'myInputClass',                   // textarea element - defaults to 'form__control'
+        'errorMessage' => 'myErrorMessageClass',     // error message span - defaults to 'form__error'
+    ],
 ])
 ```
 ```php
@@ -118,17 +170,20 @@ Then you will be able to access the components with the `form::` package prefix.
     'buttons' => [
         [
             'element'  => 'button', // optional - defaults to button
-            'type'     => 'submit',
+            'type'     => 'submit', // optional
             'text'     => 'Submit',
-            'class'    => 'button--primary',
+            'class'    => 'myButtonClass', // optional - defaults to 'button button--default'
             'disabled' => true, // optional
         ],
         [
             'element'  => 'a',
             'href'     => 'https://somewhere.com',
             'text'     => 'Cancel',
-            'class'    => 'button--secondary',
+            'class'    => 'myOtherButtonClass', // optional - defaults to 'button button--default'
         ],
+    ],
+    'classes' => [ // optional, class's default is used unless a value is set (use '' for blank)
+        'inputContainer' => 'myInputContainerClass', // div element that contains buttons - defaults to 'form-action-buttons'
     ],
 ])
 ```

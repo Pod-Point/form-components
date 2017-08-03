@@ -1,11 +1,11 @@
 @extends('form::_components.form-group')
 
 @section('label')
-    <label class="form__label {{ $labelClass ?? '' }}" for="{{ $name }}">{{ $labelText }}</label>
+    <label class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}" for="{{ $name }}">{{ $labelText }}</label>
 @overwrite
 
 @section('input')
-    <textarea class="form__control"
+    <textarea class="{{ isset($classes['input']) ? $classes['input'] : 'form__control' }}"
               id="{{ $name }}"
               name="{{ $name }}"
               placeholder="{{ $placeholder ?? '' }}"

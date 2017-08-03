@@ -2,7 +2,9 @@
 
 @section('label')
     @if(isset($labelText))
-        <span class="form__label">{{ $labelText }}</span>
+        <span class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}">
+            {{ $labelText }}
+        </span>
     @endif
 @overwrite
 
@@ -17,11 +19,13 @@
         $values = gettype($values) === 'string' ? array($values => $values) : $values;
     @endphp
     @foreach ($options as $key => $option)
-        <label class="checkbox {{ $labelClass ?? '' }}" for="{{ count($options) === 1 ? $name : $name . '_' . $key }}">
+        <label class="{{ isset($classes['inputContainer']) ? $classes['inputContainer'] : 'checkbox' }}"
+               for="{{ count($options) === 1 ? $name : $name . '_' . $key }}">
             <input type="checkbox"
                    name="{{ count($options) === 1 ? $name : $name . '[' . $key . ']' }}"
                    id="{{ count($options) === 1 ? $name :  $name . '[' . $key . ']' }}"
                    value="{{ $key }}"
+                   class="{{ isset($classes['input']) ? $classes['input'] : '' }}"
                    {{ in_array($key, $values) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
             >
