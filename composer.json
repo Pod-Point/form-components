@@ -12,7 +12,7 @@
     "license": "proprietary",
     "autoload": {
         "psr-4": {
-            "PodPoint\\FormComponents\\": "src"
+            "PodPoint\\FormComponents\\": "src/"
         }
     },
     "autoload-dev": {

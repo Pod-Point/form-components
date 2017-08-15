@@ -1,11 +1,17 @@
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
+@endphp
+
 @extends('form::_components.form-group')
 
 @section('label')
-    <label class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}" for="{{ $name }}">{{ $labelText }}</label>
+    <label class="{{ isset($classes['label']) ? $classes['label'] : FormComponentsServiceProvider::LABEL_DEFAULT_CLASS }}" for="{{ $name }}">
+        {{ $labelText }}
+    </label>
 @overwrite
 
 @section('input')
-    <input class="{{ isset($classes['input']) ? $classes['input'] : 'form__control button button--default upload' }}"
+    <input class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::FILE_UPLOAD_DEFAULT_CLASS }}"
            type="file"
            id="{{ $name }}"
            name="{{ $name }}"

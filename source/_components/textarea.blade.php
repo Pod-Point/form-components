@@ -1,11 +1,17 @@
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
+@endphp
+
 @extends('form::_components.form-group')
 
 @section('label')
-    <label class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}" for="{{ $name }}">{{ $labelText }}</label>
+    <label class="{{ isset($classes['label']) ? $classes['label'] : FormComponentsServiceProvider::LABEL_DEFAULT_CLASS }}" for="{{ $name }}">
+        {{ $labelText }}
+    </label>
 @overwrite
 
 @section('input')
-    <textarea class="{{ isset($classes['input']) ? $classes['input'] : 'form__control' }}"
+    <textarea class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::TEXT_AREA_DEFAULT_CLASS }}"
               id="{{ $name }}"
               name="{{ $name }}"
               placeholder="{{ $placeholder ?? '' }}"

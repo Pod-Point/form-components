@@ -1,7 +1,13 @@
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
+@endphp
+
 @extends('form::_components.form-group')
 
 @section('label')
-    <label class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}" for="{{ $name }}">{{ $labelText }}</label>
+    <label class="{{ isset($classes['label']) ? $classes['label'] : FormComponentsServiceProvider::LABEL_DEFAULT_CLASS }}" for="{{ $name }}">
+        {{ $labelText }}
+    </label>
 @overwrite
 
 @section('input')
@@ -9,7 +15,7 @@
         $value = $value ?? '';
     @endphp
 
-    <input class="{{ isset($classes['input']) ? $classes['input'] : 'form__control' }}"
+    <input class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::INPUT_DEFAULT_CLASS }}"
            type="{{ $type ?? 'text' }}"
            id="{{ $name }}"
            name="{{ $name }}"

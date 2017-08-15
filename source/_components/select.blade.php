@@ -1,8 +1,12 @@
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
+@endphp
+
 @extends('form::_components.form-group')
 
 @section('label')
     @if(isset($labelText))
-        <span class="{{ isset($classes['label']) ? $classes['label'] : 'form__label' }}">
+        <span class="{{ isset($classes['label']) ? $classes['label'] : FormComponentsServiceProvider::LABEL_DEFAULT_CLASS }}">
             {{ $labelText }}
         </span>
     @endif
@@ -16,8 +20,8 @@
             $value =  $value ?? null;
         }
     @endphp
-    <div class="{{ isset($classes['inputContainer']) ? $classes['inputContainer'] : 'select-wrapper' }}">
-        <select class="{{ isset($classes['input']) ? $classes['input'] : 'form__control' }}"
+    <div class="{{ isset($classes['inputContainer']) ? $classes['inputContainer'] : FormComponentsServiceProvider::SELECT_CONTAINER_DEFAULT_CLASS }}">
+        <select class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::SELECT_DEFAULT_CLASS }}"
                 id="{{ $name }}" name="{{ $name }}" {{ isset($disabled) ? 'disabled' : '' }}>
             @foreach ($options as $key => $option)
                 <option value="{{ $key }}" {{ $key === $value ? 'selected' : '' }}>
