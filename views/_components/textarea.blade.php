@@ -10,5 +10,10 @@
               name="{{ $name }}"
               placeholder="{{ $placeholder ?? '' }}"
               {{ isset($disabled) ? 'disabled' : '' }}
+              @if (isset($attributes))
+                   @foreach ($attributes as $attributeName => $attributeValue)
+                        {{ $attributeName }}="{{ $attributeValue }}"
+                   @endforeach
+              @endif
     >{{ isset($app) ? old($name, $value) : $value }}</textarea>
 @overwrite
