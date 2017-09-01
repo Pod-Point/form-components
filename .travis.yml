@@ -9,6 +9,9 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+before_install:
+  - mkdir -p storage/views
+
 before_script:
   - composer config -g github-oauth.github.com $COMPOSER_TOKEN
   - composer install --prefer-source --no-interaction
