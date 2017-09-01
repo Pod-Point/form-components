@@ -2,7 +2,7 @@
 
 @section('label')
     @if(isset($labelText))
-        <span class="form__label">{{ $labelText }}</span>
+        <span class="form__label {{ $labelClass ?? '' }}">{{ $labelText }}</span>
     @endif
 @overwrite
 

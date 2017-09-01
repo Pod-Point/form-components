@@ -188,6 +188,7 @@ class ViewFormComponentsTest extends TestCase {
 
         $renderedView = $this->renderBladeView('select', $data);
 
+        $this->assertTrue(str_contains($renderedView, "<span class=\"form__label {$data['labelClass']}\">{$data['labelText']}</span>"));
         $this->assertTrue(str_contains($renderedView, '<select'));
         foreach($data['options'] as $option => $optionValue) {
             $this->assertTrue(str_contains($renderedView, "<select class=\"form__control\""));
