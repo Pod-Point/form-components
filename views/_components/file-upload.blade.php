@@ -10,5 +10,10 @@
            id="{{ $name }}"
            name="{{ $name }}"
            {{ isset($disabled) ? 'disabled' : '' }}
+           @if (isset($attributes))
+                @foreach ($attributes as $attributeName => $attributeValue)
+                    {{ $attributeName }}="{{ $attributeValue }}"
+                @endforeach
+           @endif
     >
 @overwrite
