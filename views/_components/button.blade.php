@@ -1,13 +1,13 @@
-<{{ isset($button['element']) ? $button['element'] : 'button' }}
-    class="button {{ $button['class'] ?? '' }}"
-    {!! isset($button['type']) ? "type=\"{$button['type']}\"" : '' !!}
-    {!! isset($button['href']) ? "href=\"{$button['href']}\"" : '' !!}
-    {{ isset($button['disabled']) ? 'disabled' : '' }}
-    @if (isset($button['attributes']))
-        @foreach ($button['attributes'] as $attributeName => $attributeValue)
+<{{ isset($element) ? $element : 'button' }}
+    class="button {{ $class ?? '' }}"
+    {!! isset($type) ? "type=\"{$type}\"" : '' !!}
+    {!! isset($href) ? "href=\"{$href}\"" : '' !!}
+    {{ isset($disabled) ? 'disabled' : '' }}
+    @if (isset($attributes))
+        @foreach ($attributes as $attributeName => $attributeValue)
             {{ $attributeName }}="{{ $attributeValue }}"
         @endforeach
     @endif
 >
-    {{ $button['text'] }}
-</{{ isset($button['element']) ? $button['element'] : 'button' }}>
+    {{ $text }}
+</{{ isset($element) ? $element : 'button' }}>
