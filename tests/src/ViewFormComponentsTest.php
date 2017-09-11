@@ -1,11 +1,9 @@
 <?php
 
-namespace PodPoint\Tests\Functional;
+namespace PodPoint\Tests;
 
-use PodPoint\FormComponents\Tests\TestCase;
-
-class ViewFormComponentsTest extends TestCase {
-
+class ViewFormComponentsTest extends TestCase
+{
     /**
      * Check that a single checkbox displays correctly with the options passed to it.
      */
