@@ -7,19 +7,9 @@ use Illuminate\Support\ServiceProvider;
 class FormComponentsServiceProvider extends ServiceProvider
 {
     /**
-     * Default class for field row div
+     * Default class for form group div
      */
-    const FIELD_ROW_DEFAULT_CLASS = 'form__group field-row';
-
-    /**
-     * Default class if field has value set
-     */
-    const HAS_CONTENT_DEFAULT_CLASS = 'hasContent';
-
-    /**
-     * Default class if field has validation error
-     */
-    const HAS_ERROR_DEFAULT_CLASS = 'hasError';
+    const FORM_GROUP_DEFAULT_CLASS = 'form__group';
 
     /**
      * Default class for text label appearing above some inputs
@@ -27,44 +17,34 @@ class FormComponentsServiceProvider extends ServiceProvider
     const LABEL_DEFAULT_CLASS = 'form__label';
 
     /**
-     * Default class for form field wrapper div
-     */
-    const FIELD_WRAPPER_DEFAULT_CLASS = 'form-field-wrapper';
-
-    /**
-     * Default class for error message
-     */
-    const ERROR_MESSAGE_DEFAULT_CLASS = 'form__error';
-
-    /**
-     * Default class for button container
-     */
-    const BUTTON_CONTAINER_DEFAULT_CLASS = 'form-action-buttons';
-
-    /**
      * Default class for button
      */
-    const BUTTON_DEFAULT_CLASS = 'button button--default';
+    const BUTTON_DEFAULT_CLASS = 'btn';
 
     /**
      * Default class for checkbox container
      */
-    const CHECKBOX_CONTAINER_DEFAULT_CLASS = 'checkbox';
+    const CHECKBOX_CONTAINER_DEFAULT_CLASS = 'checkbox form__field';
+
+    /**
+     * Default class for checkbox
+     */
+    const CHECKBOX_DEFAULT_CLASS = 'form__control';
 
     /**
      * Default class for file upload input
      */
-    const FILE_UPLOAD_DEFAULT_CLASS = 'form__control button button--default upload';
+    const FILE_UPLOAD_DEFAULT_CLASS = 'form__control form__field';
 
     /**
      * Default class for text/password input
      */
-    const INPUT_DEFAULT_CLASS = 'form__control';
+    const INPUT_DEFAULT_CLASS = 'form__control form__field';
 
     /**
      * Default class for radio container
      */
-    const RADIO_CONTAINER_DEFAULT_CLASS = 'form__label radio';
+    const RADIO_CONTAINER_DEFAULT_CLASS = 'radio form__field';
 
     /**
      * Default class for radio
@@ -72,9 +52,9 @@ class FormComponentsServiceProvider extends ServiceProvider
     const RADIO_DEFAULT_CLASS = 'form__control';
 
     /**
-     * Default class for select container
+     * Default class for select container div
      */
-    const SELECT_CONTAINER_DEFAULT_CLASS = 'select-wrapper';
+    const SELECT_CONTAINER_DEFAULT_CLASS = 'select form__field';
 
     /**
      * Default class for select
@@ -84,7 +64,7 @@ class FormComponentsServiceProvider extends ServiceProvider
     /**
      * Default class for textarea
      */
-    const TEXT_AREA_DEFAULT_CLASS = 'form__control';
+    const TEXT_AREA_DEFAULT_CLASS = 'form__control form__field';
 
     /**
      * Perform post-registration booting of services.
