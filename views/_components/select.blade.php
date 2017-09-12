@@ -22,9 +22,17 @@
     @endphp
     <div class="{{ isset($classes['inputContainer']) ? $classes['inputContainer'] : FormComponentsServiceProvider::SELECT_CONTAINER_DEFAULT_CLASS }}">
         <select class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::SELECT_DEFAULT_CLASS }}"
-                id="{{ $name }}" name="{{ $name }}" {{ isset($disabled) ? 'disabled' : '' }}>
+                id="{{ $name }}"
+                name="{{ $name }}"
+                {{ isset($disabled) ? 'disabled' : '' }}
+                @if (isset($attributes))
+                    @foreach ($attributes as $attributeName => $attributeValue)
+                        {{ $attributeName }}="{{ $attributeValue }}"
+                    @endforeach
+                @endif
+        >
             @foreach ($options as $key => $option)
-                <option value="{{ $key }}" {{ $key === $value ? 'selected' : '' }}>
+                <option value="{{ $key }}" {{ $key == $value ? 'selected' : '' }}>
                     {{ $option }}
                 </option>
             @endforeach

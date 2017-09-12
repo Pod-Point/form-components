@@ -93,7 +93,7 @@ class FormComponentsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../source', 'form');
+        $this->loadViewsFrom(__DIR__.'/../views', 'form');
     }
 
     /**

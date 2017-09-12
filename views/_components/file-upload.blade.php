@@ -11,18 +11,15 @@
 @overwrite
 
 @section('input')
-    @php
-        $value = $value ?? '';
-    @endphp
-
-    <input class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::INPUT_DEFAULT_CLASS }}"
-           type="{{ $type ?? 'text' }}"
+    <input class="{{ isset($classes['input']) ? $classes['input'] : FormComponentsServiceProvider::FILE_UPLOAD_DEFAULT_CLASS }}"
+           type="file"
            id="{{ $name }}"
            name="{{ $name }}"
-           @if (!isset($type) || $type !== 'password')
-                value="{{ isset($app) ? old($name, $value) : $value }}"
-           @endif
-           placeholder="{{ $placeholder ?? '' }}"
            {{ isset($disabled) ? 'disabled' : '' }}
+           @if (isset($attributes))
+                @foreach ($attributes as $attributeName => $attributeValue)
+                    {{ $attributeName }}="{{ $attributeValue }}"
+                @endforeach
+           @endif
     >
 @overwrite

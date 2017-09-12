@@ -32,6 +32,11 @@
                    class="{{ isset($classes['input']) ? $classes['input'] : '' }}"
                    {{ in_array($key, $values) ? 'checked' : '' }}
                    {{ isset($disabled) ? 'disabled' : '' }}
+                   @if (isset($attributes))
+                        @foreach ($attributes as $attributeName => $attributeValue)
+                            {{ $attributeName }}="{{ $attributeValue }}"
+                        @endforeach
+                   @endif
             >
             <span>{{ $option }}</span>
         </label>

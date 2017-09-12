@@ -1,13 +1,12 @@
 <?php
 
-namespace PodPoint\Tests\Functional;
+namespace PodPoint\Tests;
 
 use DOMDocument;
 use \PodPoint\FormComponents\FormComponentsServiceProvider;
-use PodPoint\FormComponents\Tests\TestCase;
 
-class ViewFormComponentsTest extends TestCase {
-
+class ViewFormComponentsTest extends TestCase
+{
     /**
      * Check that the container form-group component displays correctly with the default classes used.
      *
@@ -46,6 +45,9 @@ class ViewFormComponentsTest extends TestCase {
             ],
             'values'      => ['option1'],
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $optionKey = key($data['options']);
@@ -111,6 +113,15 @@ class ViewFormComponentsTest extends TestCase {
 
         $input = $dom->getElementsByTagName('input')[0];
         $this->assertTrue(str_contains($input->getAttribute('class'), $data['classes']['input']));
+        $this->assertTrue(str_contains($renderedView, '<input'));
+        $this->assertTrue(str_contains($renderedView, "id=\"{$data['name']}\""));
+        $this->assertTrue(str_contains($renderedView, "name=\"{$data['name']}\""));
+        $this->assertTrue(str_contains($renderedView, "<span class=\"form__label\">{$data['labelText']}</span>"));
+        $this->assertTrue(str_contains($renderedView, "<label class=\"checkbox {$data['labelClass']}\" for=\"{$data['name']}\">"));
+        $this->assertTrue(str_contains($renderedView, "value=\"{$data['values'][0]}\""));
+        $this->assertTrue(str_contains($renderedView, "<span>{$data['options']['option1']}</span>"));
+        $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -128,6 +139,9 @@ class ViewFormComponentsTest extends TestCase {
             ],
             'values'      => ['option1'],
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $dom = new DOMDocument();
@@ -205,6 +219,9 @@ class ViewFormComponentsTest extends TestCase {
         foreach($inputs as $input) {
             $this->assertTrue(str_contains($input->getAttribute('class'), $data['classes']['input']));
         }
+        $this->assertTrue(substr_count($renderedView, 'checked') === 1);
+        $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -219,6 +236,9 @@ class ViewFormComponentsTest extends TestCase {
             'value'       => 'Some text',
             'placeholder' => 'Some hint',
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         echo $this->renderBladeView('input', $data);
@@ -302,6 +322,7 @@ class ViewFormComponentsTest extends TestCase {
         $this->assertTrue(str_contains($renderedView, "value=\"{$data['value']}\""));
         $this->assertTrue(str_contains($renderedView, "placeholder=\"{$data['placeholder']}\""));
         $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -314,6 +335,9 @@ class ViewFormComponentsTest extends TestCase {
             'labelText'   => 'Upload a file',
             'labelClass'  => 'some-class',
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $renderedView = $this->renderBladeView('file-upload', $data);
@@ -323,6 +347,7 @@ class ViewFormComponentsTest extends TestCase {
         $this->assertTrue(str_contains($renderedView, "name=\"{$data['name']}\""));
         $this->assertTrue(str_contains($renderedView, "<label class=\"form__label {$data['labelClass']}\" for=\"{$data['name']}\">{$data['labelText']}</label>"));
         $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -340,6 +365,9 @@ class ViewFormComponentsTest extends TestCase {
             ],
             'value'       => 'option1',
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $renderedView = $this->renderBladeView('radio', $data);
@@ -354,6 +382,7 @@ class ViewFormComponentsTest extends TestCase {
         }
         $this->assertTrue(substr_count($renderedView, 'checked') === 1);
         $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -371,18 +400,25 @@ class ViewFormComponentsTest extends TestCase {
             ],
             'value'       => 'option1',
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $renderedView = $this->renderBladeView('select', $data);
 
+        $this->assertTrue(str_contains($renderedView, "<span class=\"form__label {$data['labelClass']}\">{$data['labelText']}</span>"));
         $this->assertTrue(str_contains($renderedView, '<select'));
         foreach($data['options'] as $option => $optionValue) {
-            $this->assertTrue(str_contains($renderedView, "<select class=\"form__control\" id=\"{$data['name']}\" name=\"{$data['name']}\""));
+            $this->assertTrue(str_contains($renderedView, "<select class=\"form__control\""));
+            $this->assertTrue(str_contains($renderedView, "id=\"{$data['name']}\""));
+            $this->assertTrue(str_contains($renderedView, "name=\"{$data['name']}\""));
             $this->assertTrue(str_contains($renderedView, "value=\"{$option}\""));
             $this->assertTrue(str_contains($renderedView, "{$optionValue}"));
         }
         $this->assertTrue(substr_count($renderedView, 'selected') === 1);
         $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 
     /**
@@ -398,6 +434,9 @@ class ViewFormComponentsTest extends TestCase {
             'value'       => 'Some text',
             'placeholder' => 'Some hint',
             'disabled'    => true,
+            'attributes'     => [
+                'attribute1' => 'Attribute value',
+            ],
         ];
 
         $renderedView = $this->renderBladeView('textarea', $data);
@@ -409,5 +448,6 @@ class ViewFormComponentsTest extends TestCase {
         $this->assertTrue(str_contains($renderedView, "{$data['value']}"));
         $this->assertTrue(str_contains($renderedView, "placeholder=\"{$data['placeholder']}\""));
         $this->assertTrue(str_contains($renderedView, 'disabled'));
+        $this->assertTrue(str_contains($renderedView, "attribute1=\"{$data['attributes']['attribute1']}\""));
     }
 }
