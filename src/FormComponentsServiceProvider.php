@@ -64,7 +64,7 @@ class FormComponentsServiceProvider extends ServiceProvider
     /**
      * Default class for textarea
      */
-    const TEXT_AREA_DEFAULT_CLASS = 'form__control form__field';
+    const TEXTAREA_DEFAULT_CLASS = 'form__control form__field';
 
     /**
      * Perform post-registration booting of services.

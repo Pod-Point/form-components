@@ -9,7 +9,9 @@
 <{{ $element }}
     class="{{ $classes['input'] }}"
     id="{{ $name }}"
-    name="{{ $name }}"
+    @if ($element === 'button')
+        name="{{ $name }}"
+    @endif
     @include('form::_components.attributes')
 >
     {{ $text }}

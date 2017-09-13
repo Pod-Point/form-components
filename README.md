@@ -6,7 +6,7 @@ It is intended to be usable by anyone.
 
 For ease of use by [Pod Point](https://pod-point.com) staff, when classes are not specified they default to those used in the [Pod Point UI toolkit](https://github.com/Pod-Point/pod-point-ui-toolkit).
 
-## Installation
+## Editing
 
 To edit this project, clone the repository:
 
@@ -14,18 +14,18 @@ To edit this project, clone the repository:
 git clone git@github.com:Pod-Point/form-components.git
 ```
 
-Install the PHP dependencies*:
+Install the PHP dependencies:
 
 ```bash
 cd form-components
 composer install
 ```
 
-## Laravel
+## Laravel installation
 
 More commonly, you'll want to import these components for use in Laravel applications (or other frameworks that use Blade).
 
-Using Composer, first you need to add the repository to your `composer.json`:
+To install it using Composer, first you need to add the repository to your `composer.json`:
 
 ```javascript
 "repositories": [
@@ -40,57 +40,24 @@ Then require the package:
 
 ```javascript
 "require": {
-    "pod-point/form-components": "^2.0"
+    "pod-point/form-components": "^3.0"
 },
 ```
 
-And finally in Laravel include the service provider in your `config.app.php` file:
+Then run `composer install`
+
+And finally in Laravel include the service provider in your `config/app.php` file:
 
 ```php
 PodPoint\FormComponents\FormComponentsServiceProvider::class,
 ```
 
-Then you will be able to access the components with the `form::` package prefix - see examples below.
+## Usage
+
+You can insert components into Blade views using the `form::` package prefix.
 
 ### Examples
-
-#### Attributes
-Some key attributes e.g. `name` can be set directly - see examples below.
-
-For all components, any additional attributes can be set using the `attributes` array.  These are optional.
-
-`attributes` can take text values where needed, e.g. 
-```php
-...
-    'attributes' => [
-        'type' => 'submit',
-    ],
-...
-```
-or they can take boolean values - if a boolean value is used the attribute will be included if true e.g. `<input disabled>` or omitted if false e.g. `<input>`
-```php
-...
-    'attributes' => [
-        'disabled' => true,
-    ],
-...
-```
-
-#### Classes
-For all components, all `classes` are optional.
-
-If an element's class is not specified, it defaults to the appropriate class(es) from the Pod Point UI toolkit - see each component below for details.
-
-If you want an element to have no class set at all, set that element's class to `''` e.g.
-```php
-...
-    'classes' => [
-        'input' => '',
-    ],
-...
-```
-
-#### Examples for each component
+Button
 ```php
 @include('form::_components.button', [
     'name'     => 'myButton', // optional, sets name and id
@@ -102,7 +69,6 @@ If you want an element to have no class set at all, set that element's class to 
         ...
     ],
     'classes' => [ // optional
-        'formGroup' => 'myFormGroupClass', // container div - defaults to 'form__group'
         'input' => 'myInputClass', // button - defaults to 'btn'
     ],
 ])
@@ -116,6 +82,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+Checkbox
 ```php
 @include('form::_components.checkbox', [
     'name'        => 'myCheckbox', // sets name and id
@@ -137,6 +104,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+File upload
 ```php
 @include('form::_components.file-upload', [
     'name'       => 'myUpload', // sets name and id
@@ -152,6 +120,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+Text/password input
 ```php
 @include('form::_components.input', [
     'name'        => 'myTextbox', // sets name and id
@@ -170,6 +139,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+Radio button(s)
 ```php
 @include('form::_components.radio', [
     'name'        => 'myRadio', // sets name and id
@@ -191,6 +161,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+Select dropdown
 ```php
 @include('form::_components.select', [
     'name'        => 'mySelect', // sets name and id
@@ -212,6 +183,7 @@ If you want an element to have no class set at all, set that element's class to 
     ],
 ])
 ```
+Textarea
 ```php
 @include('form::_components.textarea', [
     'name'       => 'myTextarea', // sets name and id
@@ -228,4 +200,40 @@ If you want an element to have no class set at all, set that element's class to 
         'input' => 'myInputClass', // textarea element - defaults to 'form__control form__field'
     ],
 ])
+```
+
+### Attributes
+Some key attributes e.g. `name` can be set directly (see examples above for each component).
+
+For all components, any additional attributes can be set using the `attributes` array.  These are optional.
+
+`attributes` can take text values where needed, e.g. 
+```php
+...
+    'attributes' => [
+        'type' => 'submit',
+    ],
+...
+```
+or they can take boolean values - if a boolean value is used the attribute will be included if true e.g. `<input disabled>` or omitted if false e.g. `<input>`
+```php
+...
+    'attributes' => [
+        'disabled' => true,
+    ],
+...
+```
+
+### Classes
+For all components, all `classes` are optional.
+
+If an element's class is not specified, it defaults to the appropriate class(es) from the Pod Point UI toolkit - see each component below for details.
+
+If you want an element to have no class set at all, set that element's class to `''` e.g.
+```php
+...
+    'classes' => [
+        'input' => '',
+    ],
+...
 ```
