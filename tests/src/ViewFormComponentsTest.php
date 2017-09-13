@@ -132,8 +132,8 @@ class ViewFormComponentsTest extends TestCase
     }
 
     /**
-     * Check that multiple checkboxes displays correctly with the options passed to them
-     * - multiple group checkboxes are named slightly differently to single checkboxes.
+     * Check that multiple checkboxes display correctly with the options passed to them
+     * - multiple group checkboxes are named differently to single checkboxes.
      */
     public function testMultipleCheckboxesDisplayCorrectly()
     {

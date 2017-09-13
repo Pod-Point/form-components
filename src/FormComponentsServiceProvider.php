@@ -52,7 +52,7 @@ class FormComponentsServiceProvider extends ServiceProvider
     const RADIO_DEFAULT_CLASS = 'form__control';
 
     /**
-     * Default class for select container div
+     * Default class for select container
      */
     const SELECT_CONTAINER_DEFAULT_CLASS = 'select form__field';
 
