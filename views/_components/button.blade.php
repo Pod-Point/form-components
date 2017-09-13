@@ -1,13 +1,18 @@
-<{{ isset($element) ? $element : 'button' }}
-    class="button {{ $class ?? '' }}"
-    {!! isset($type) ? "type=\"{$type}\"" : '' !!}
-    {!! isset($href) ? "href=\"{$href}\"" : '' !!}
-    {{ isset($disabled) ? 'disabled' : '' }}
-    @if (isset($attributes))
-        @foreach ($attributes as $attributeName => $attributeValue)
-            {{ $attributeName }}="{{ $attributeValue }}"
-        @endforeach
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
+
+    $classes['input'] = $classes['input'] ?? FormComponentsServiceProvider::BUTTON_DEFAULT_CLASS;
+    $element = $element ?? 'button';
+    $name = $name ?? '';
+@endphp
+
+<{{ $element }}
+    class="{{ $classes['input'] }}"
+    id="{{ $name }}"
+    @if ($element === 'button')
+        name="{{ $name }}"
     @endif
+    @include('form::_components.attributes')
 >
     {{ $text }}
-</{{ isset($element) ? $element : 'button' }}>
+</{{ $element }}>

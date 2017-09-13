@@ -1,12 +1,13 @@
-<div class="form__group field-row
-     {{ ($value ?? (isset($app) ? old($name) : null)) ? 'has-content' : '' }}
-     {{ $errors->has($name) ? 'has-error' : '' }}">
+@php
+    use PodPoint\FormComponents\FormComponentsServiceProvider;
 
-     @yield('label')
+    $classes['formGroup'] = $classes['formGroup'] ?? FormComponentsServiceProvider::FORM_GROUP_DEFAULT_CLASS;
+@endphp
 
-     <div class="form-field-wrapper">
-         @yield('input')
-         {!! $errors->first($name, '<span class="form__error">:message</span>') !!}
-     </div>
+<div class="{{ $classes['formGroup'] }}">
+
+    @yield('label')
+
+    @yield('input')
 
 </div>
