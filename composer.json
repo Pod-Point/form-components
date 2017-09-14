@@ -1,6 +1,7 @@
 {
     "name": "pod-point/form-components",
-    "description": "Form components for POD Point websites",
+    "description": "Commonly used form components to make it easier and more flexible to create forms in Blade views",
+    "keywords": ["php", "laravel", "blade", "form", "components"],
     "type": "library",
     "require": {
         "php": ">=7.0.0",
@@ -9,7 +10,13 @@
     "require-dev": {
         "phpunit/phpunit": "^5.3"
     },
-    "license": "proprietary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joe Hall",
+            "email": "joe.hall@pod-point.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "PodPoint\\FormComponents\\": "src/"

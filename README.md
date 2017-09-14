@@ -1,6 +1,6 @@
 # Form Components
 
-Commonly used form components for to make it easier and more flexible to create forms in [Blade](https://laravel.com/docs/master/blade) views.
+Commonly used form components to make it easier and more flexible to create forms in [Blade](https://laravel.com/docs/master/blade) views.
 
 It is intended to be usable by anyone.
 
@@ -25,28 +25,13 @@ composer install
 
 More commonly, you'll want to import these components for use in Laravel applications (or other frameworks that use Blade).
 
-To install it using Composer, first you need to add the repository to your `composer.json`:
+To install it using Composer, require the package:
 
-```javascript
-"repositories": [
-    {
-        "type": "git",
-        "url": "git@github.com:pod-point/form-components.git"
-    }
-]
+```bash
+composer require pod-point/form-components:^3.0
 ```
 
-Then require the package:
-
-```javascript
-"require": {
-    "pod-point/form-components": "^3.0"
-},
-```
-
-Then run `composer install`
-
-And finally in Laravel include the service provider in your `config/app.php` file:
+Then in Laravel, include the service provider in your `config/app.php` file:
 
 ```php
 PodPoint\FormComponents\FormComponentsServiceProvider::class,
