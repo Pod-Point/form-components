@@ -165,7 +165,7 @@ Select dropdown
 ```php
 @include('form::_components.select', [
     'name'        => 'mySelect', // sets name and id
-    'labelText'   => 'Choose an option', // optional
+    'labelText'   => 'Choose an option',
     'options'     => [
         'option1' => 'Option 1',
         'option2' => 'Option 2',

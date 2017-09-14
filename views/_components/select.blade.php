@@ -12,11 +12,9 @@
 @extends('form::_components.form-group')
 
 @section('label')
-    @if(isset($labelText))
-        <span class="{{ $classes['label'] }}">
-            {{ $labelText }}
-        </span>
-    @endif
+    <label class="{{ $classes['label'] }}" for="{{ $name }}">
+        {{ $labelText }}
+    </label>
 @overwrite
 
 @section('input')

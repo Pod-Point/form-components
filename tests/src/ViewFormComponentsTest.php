@@ -462,8 +462,9 @@ class ViewFormComponentsTest extends TestCase
 
         $this->checkFormGroupDisplaysWithDefaultClass($dom);
 
-        $label = $dom->getElementsByTagName('span')[0];
+        $label = $dom->getElementsByTagName('label')[0];
         $this->assertTrue(str_contains($label->getAttribute('class'), FormComponentsServiceProvider::LABEL_DEFAULT_CLASS));
+        $this->assertTrue(str_contains($label->getAttribute('for'), $data['name']));
         $this->assertTrue(str_contains($label->firstChild->wholeText, $data['labelText']));
 
         $inputContainer = $dom->getElementsByTagName('div')[1];
@@ -517,7 +518,7 @@ class ViewFormComponentsTest extends TestCase
 
         $this->checkFormGroupDisplaysWithCustomClass($dom, $data['classes']['formGroup']);
 
-        $label = $dom->getElementsByTagName('span')[0];
+        $label = $dom->getElementsByTagName('label')[0];
         $this->assertFalse(str_contains($label->getAttribute('class'), FormComponentsServiceProvider::LABEL_DEFAULT_CLASS));
         $this->assertTrue(str_contains($label->getAttribute('class'), $data['classes']['label']));
 
