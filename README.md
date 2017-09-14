@@ -31,7 +31,7 @@ To install it using Composer, require the package:
 composer require pod-point/form-components:^3.0
 ```
 
-Then in Laravel include the service provider in your `config/app.php` file:
+Then in Laravel, include the service provider in your `config/app.php` file:
 
 ```php
 PodPoint\FormComponents\FormComponentsServiceProvider::class,
