@@ -1,6 +1,6 @@
 # Form Components
 
-Commonly used form components for to make it easier and more flexible to create forms in [Blade](https://laravel.com/docs/master/blade) views.
+Commonly used form components to make it easier and more flexible to create forms in [Blade](https://laravel.com/docs/master/blade) views.
 
 It is intended to be usable by anyone.
 

@@ -1,6 +1,6 @@
 {
     "name": "pod-point/form-components",
-    "description": "Form components for POD Point websites",
+    "description": "Commonly used form components to make it easier and more flexible to create forms in Blade views",
     "type": "library",
     "require": {
         "php": ">=7.0.0",
