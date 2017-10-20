@@ -3,6 +3,8 @@
 namespace PodPoint\FormComponents\Tests;
 
 use DOMDocument;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 use \PodPoint\FormComponents\FormComponentsServiceProvider;
 
 class ViewFormComponentsTest extends TestCase
@@ -593,5 +595,36 @@ class ViewFormComponentsTest extends TestCase
         $input = $dom->getElementsByTagName('textarea')[0];
         $this->assertFalse(str_contains($input->getAttribute('class'), FormComponentsServiceProvider::TEXTAREA_DEFAULT_CLASS));
         $this->assertTrue(str_contains($input->getAttribute('class'), $data['classes']['input']));
+    }
+
+    /**
+     * Check that a form group renders any errors passed to it.
+     */
+    public function testFormGroupDisplaysCorrectlyWithErrors()
+    {
+        $errors = new ViewErrorBag;
+        $errors->put('default', new MessageBag(['myTextbox' => 'Test error!']));
+
+        $data = [
+            'name' => 'myTextbox',
+            'labelText' => 'Type here',
+            'value' => 'Some text',
+            'attributes' => [
+                'attribute1' => 'Attribute value',
+                'attribute2' => true,
+                'attribute3' => false,
+            ],
+            'errors' => $errors,
+        ];
+
+        $dom = new DOMDocument();
+        $dom->loadHTML($this->renderBladeView('input', $data));
+
+        $formGroupDiv = $dom->getElementsByTagName('div')[0];
+        $formErrorSpan = $dom->getElementsByTagName('span')[0];
+
+        $this->assertTrue(str_contains($formGroupDiv->getAttribute('class'), FormComponentsServiceProvider::FORM_GROUP_ERROR_CLASS));
+        $this->assertTrue(str_contains($formErrorSpan->getAttribute('class'), FormComponentsServiceProvider::FORM_ERROR_SPAN_CLASS));
+        $this->assertEquals($errors->first('myTextbox'), $formErrorSpan->textContent);
     }
 }

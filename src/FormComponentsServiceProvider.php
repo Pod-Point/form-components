@@ -12,6 +12,16 @@ class FormComponentsServiceProvider extends ServiceProvider
     const FORM_GROUP_DEFAULT_CLASS = 'form__group';
 
     /**
+     * Default class for form group div error
+     */
+    const FORM_GROUP_ERROR_CLASS = 'form__group--error';
+
+    /**
+     * Default class for form error span
+     */
+    const FORM_ERROR_SPAN_CLASS = 'form__error';
+
+    /**
      * Default class for text label appearing above some inputs
      */
     const LABEL_DEFAULT_CLASS = 'form__label';
