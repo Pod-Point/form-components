@@ -189,9 +189,9 @@ Textarea
 ])
 ```
 
-Phone number select
+Grouped typeahead select (Please note this depends on the [typeahead](https://pod-point.github.io/pod-point-ui-toolkit/typeahead.html) JS file)
 ```php
-@include('form::_components.phone', [
+@include('form::_components.grouped-typeahead', [
     'name'        => 'phoneNumber', // sets name and of the number field
     'countryName' => 'country', // sets name and id of the country select field
     'labelText'   => 'Type here', // optional
