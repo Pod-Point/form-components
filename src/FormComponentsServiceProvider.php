@@ -77,6 +77,11 @@ class FormComponentsServiceProvider extends ServiceProvider
     const TEXTAREA_DEFAULT_CLASS = 'form__control form__field';
 
     /**
+     * Default class for grouped typeahead container
+     */
+    const GROUPED_TYPEAHEAD_CONTAINER_DEFAULT_CLASS = 'typeahead-group';
+
+    /**
      * Perform post-registration booting of services.
      *
      * @return void

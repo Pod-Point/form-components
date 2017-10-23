@@ -189,6 +189,25 @@ Textarea
 ])
 ```
 
+Grouped typeahead select (Please note this depends on the [typeahead](https://pod-point.github.io/pod-point-ui-toolkit/typeahead.html) JS file)
+```php
+@include('form::_components.grouped-typeahead', [
+    'name'        => 'phoneNumber', // sets name and of the number field
+    'countryName' => 'country', // sets name and id of the country select field
+    'labelText'   => 'Type here', // optional
+    'options'     => $countryCodeOptions,
+    'value'       => 'GB',
+    'attributes' => [
+        'required' => true,
+        ...
+    ],
+    'classes' => [ // optional
+        'formGroup' => 'myFormGroupClass', // outermost container div - defaults to 'form__group'
+        'label' => 'myLabelClass', // label that appears above input - defaults to 'form__label'
+    ],
+])
+```
+
 ### Attributes
 Some key attributes e.g. `name` can be set directly (see examples above for each component).
 
