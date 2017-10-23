@@ -77,9 +77,9 @@ class FormComponentsServiceProvider extends ServiceProvider
     const TEXTAREA_DEFAULT_CLASS = 'form__control form__field';
 
     /**
-     * Default class for phone select container
+     * Default class for grouped typeahead container
      */
-    const PHONE_CONTAINER_DEFAULT_CLASS = 'typeahead-group';
+    const GROUPED_TYPEAHEAD_CONTAINER_DEFAULT_CLASS = 'typeahead-group';
 
     /**
      * Perform post-registration booting of services.

@@ -2,7 +2,7 @@
     use PodPoint\FormComponents\FormComponentsServiceProvider;
 
     $classes['label'] = $classes['label'] ?? FormComponentsServiceProvider::LABEL_DEFAULT_CLASS;
-    $classes['inputContainer'] = $classes['inputContainer'] ?? FormComponentsServiceProvider::PHONE_CONTAINER_DEFAULT_CLASS;
+    $classes['inputContainer'] = $classes['inputContainer'] ?? FormComponentsServiceProvider::GROUPED_TYPEAHEAD_CONTAINER_DEFAULT_CLASS;
     $classes['input'] = $classes['input'] ?? FormComponentsServiceProvider::INPUT_DEFAULT_CLASS;
     $classes['select'] = $classes['select'] ?? FormComponentsServiceProvider::SELECT_DEFAULT_CLASS;
 
