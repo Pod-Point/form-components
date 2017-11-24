@@ -6,7 +6,10 @@
     $classes['input'] = $classes['input'] ?? FormComponentsServiceProvider::INPUT_DEFAULT_CLASS;
     $classes['select'] = $classes['select'] ?? FormComponentsServiceProvider::SELECT_DEFAULT_CLASS;
 
-    $value = $value ?? null;
+    $countryValue = $value ?? old($countryName);
+    $countryValue = isset($app) ? old($countryName, $countryValue) : $countryValue;
+
+    $value = $value ?? old($countryName);
     $value = isset($app) ? old($name, $value) : $value;
 @endphp
 
@@ -26,7 +29,7 @@
                 name="{{ $countryName }}"
                 data-js-module="typeahead"
                 data-options="{{ $options }}"
-                data-default={{ $value }}
+                data-default={{ $countryValue }}
                 @include('form::_components.attributes')
         >
         </select>
@@ -36,6 +39,7 @@
                 type="text"
                 id="{{ $name }}"
                 name="{{ $name }}"
+                value="{{ old($name) }}"
                 @include('form::_components.attributes')
         >
     </div>
