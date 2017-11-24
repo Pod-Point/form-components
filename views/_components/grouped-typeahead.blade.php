@@ -39,7 +39,7 @@
                 type="text"
                 id="{{ $name }}"
                 name="{{ $name }}"
-                value="{{ old($name) }}"
+                value="{{ $value }}"
                 @include('form::_components.attributes')
         >
     </div>
