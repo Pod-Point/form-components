@@ -6,10 +6,10 @@
     $classes['input'] = $classes['input'] ?? FormComponentsServiceProvider::INPUT_DEFAULT_CLASS;
     $classes['select'] = $classes['select'] ?? FormComponentsServiceProvider::SELECT_DEFAULT_CLASS;
 
-    $countryValue = $value ?? old($countryName);
-    $countryValue = isset($app) ? old($countryName, $countryValue) : $countryValue;
+    $selectValue = $value ?? old($selectName);
+    $selectValue = isset($app) ? old($selectName, $selectValue) : $selectValue;
 
-    $value = $value ?? old($countryName);
+    $value = $value ?? old($selectName);
     $value = isset($app) ? old($name, $value) : $value;
 @endphp
 
@@ -25,11 +25,11 @@
     <div class="{{ $classes['inputContainer'] }}">
         <select
                 class="{{ $classes['select'] }}"
-                id="{{ $countryName }}"
-                name="{{ $countryName }}"
+                id="{{ $selectName }}"
+                name="{{ $selectName }}"
                 data-js-module="typeahead"
                 data-options="{{ $options }}"
-                data-default={{ $countryValue }}
+                data-default={{ $selectValue }}
                 @include('form::_components.attributes')
         >
         </select>
@@ -39,7 +39,7 @@
                 type="text"
                 id="{{ $name }}"
                 name="{{ $name }}"
-                value="{{ $value }}"
+                value="{{ old($name) }}"
                 @include('form::_components.attributes')
         >
     </div>
