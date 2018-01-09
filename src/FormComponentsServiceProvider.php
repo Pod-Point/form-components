@@ -82,6 +82,11 @@ class FormComponentsServiceProvider extends ServiceProvider
     const GROUPED_TYPEAHEAD_CONTAINER_DEFAULT_CLASS = 'typeahead-group';
 
     /**
+     * Default class for typeahead's select
+     */
+    const TYPEAHEADS_SELECT_DEFAULT_CLASS = 'form__control typeahead';
+
+    /**
      * Perform post-registration booting of services.
      *
      * @return void
