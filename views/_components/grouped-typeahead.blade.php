@@ -4,7 +4,7 @@
     $classes['label'] = $classes['label'] ?? FormComponentsServiceProvider::LABEL_DEFAULT_CLASS;
     $classes['inputContainer'] = $classes['inputContainer'] ?? FormComponentsServiceProvider::GROUPED_TYPEAHEAD_CONTAINER_DEFAULT_CLASS;
     $classes['input'] = $classes['input'] ?? FormComponentsServiceProvider::INPUT_DEFAULT_CLASS;
-    $classes['select'] = $classes['select'] ?? FormComponentsServiceProvider::SELECT_DEFAULT_CLASS;
+    $classes['select'] = $classes['select'] ?? FormComponentsServiceProvider::TYPEAHEADS_SELECT_DEFAULT_CLASS;
 
     $selectValue = $value ?? old($selectName);
     $selectValue = isset($app) ? old($selectName, $selectValue) : $selectValue;
