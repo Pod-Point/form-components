@@ -15,6 +15,9 @@
     <label class="{{ $classes['label'] }}" for="{{ $name }}">
         {{ $labelText }}
     </label>
+    @if(isset($explanation))
+        <p class="font-size-sm">{{ $explanation }}</p>
+    @endif
 @overwrite
 
 @section('input')
