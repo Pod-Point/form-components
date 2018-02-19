@@ -114,6 +114,7 @@ Text/password input
     'type'        => 'text', // optional, defaults to 'text'
     'value'       => 'Some text', // optional default value
     'labelText'   => 'Type here', // optional
+    'explanation' => 'Explanation copy', // optional
     'attributes' => [ // optional 
         'placeholder' => 'A hint to the user',
         'required' => true,
