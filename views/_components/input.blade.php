@@ -12,9 +12,11 @@
 @extends('form::_components.form-group')
 
 @section('label')
-    <label class="{{ $classes['label'] }}" for="{{ $name }}">
-        {{ $labelText }}
-    </label>
+    @if(isset($labelText))
+        <label class="{{ $classes['label'] }}" for="{{ $name }}">
+            {{ $labelText }}
+        </label>
+    @endif
     @if(isset($explanation))
         <p class="font-size-sm">{{ $explanation }}</p>
     @endif
