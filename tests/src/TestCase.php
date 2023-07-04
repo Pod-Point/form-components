@@ -2,15 +2,16 @@
 
 namespace PodPoint\FormComponents\Tests;
 
-use Illuminate\View\FileViewFinder;
+use Illuminate\Container\Container as Container;
+use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem as Filesystem;
+use Illuminate\Support\Arr;
+use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container as Container;
-use Illuminate\Support\ViewErrorBag;
-use Illuminate\View\Factory;
 use Illuminate\View\Engines\EngineResolver;
+use Illuminate\View\Factory;
+use Illuminate\View\FileViewFinder;
 use Illuminate\View\View as View;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
@@ -40,7 +41,7 @@ abstract class TestCase extends PHPUnitTestCase
      */
     protected function renderBladeView(string $component, $data = []) {
 
-        $data = array_add($data, 'errors', new ViewErrorBag());
+        $data = Arr::add($data, 'errors', new ViewErrorBag());
 
         $viewPaths = [
             self::COMPONENTS_DIR . '/' . $component . self::BLADE_EXT,

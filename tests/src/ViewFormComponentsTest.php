@@ -3,6 +3,7 @@
 namespace PodPoint\FormComponents\Tests;
 
 use DOMDocument;
+use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
 use \PodPoint\FormComponents\FormComponentsServiceProvider;
@@ -156,12 +157,12 @@ class ViewFormComponentsTest extends TestCase
         $spans = $dom->getElementsByTagName('span');
 
         foreach($data['options'] as $optionKey => $optionText) {
-            $inputContainer = array_first($inputContainers, function ($inputContainer) use ($data, $optionKey) {
+            $inputContainer = Arr::first($inputContainers, function ($inputContainer) use ($data, $optionKey) {
                 return $inputContainer->getAttribute('for') === "{$data['name']}[{$optionKey}]";
             });
             $this->assertNotNull($inputContainer);
 
-            $span = array_first($spans, function ($span) use ($optionText) {
+            $span = Arr::first($spans, function ($span) use ($optionText) {
                 return $span->textContent === $optionText;
             });
             $this->assertNotNull($span);
@@ -373,7 +374,7 @@ class ViewFormComponentsTest extends TestCase
         $this->assertTrue(str_contains($spanLabel->firstChild->wholeText, $data['labelText']));
 
         foreach($data['options'] as $optionKey => $optionText) {
-            $inputContainer = array_first($inputContainers, function ($inputContainer) use ($data, $optionKey) {
+            $inputContainer = Arr::first($inputContainers, function ($inputContainer) use ($data, $optionKey) {
                 return $inputContainer->getAttribute('for') === "{$data['name']}_{$optionKey}";
             });
             $this->assertNotNull($inputContainer);
@@ -390,7 +391,7 @@ class ViewFormComponentsTest extends TestCase
                 $this->assertTrue($input->hasAttribute('checked'));
             }
 
-            $span = array_first($spans, function ($span) use ($optionText) {
+            $span = Arr::first($spans, function ($span) use ($optionText) {
                 return $span->textContent === $optionText;
             });
             $this->assertNotNull($span);
@@ -483,7 +484,7 @@ class ViewFormComponentsTest extends TestCase
         $options = $dom->getElementsByTagName('option');
 
         foreach($data['options'] as $optionKey => $optionText) {
-            $option = array_first($options, function ($option) use ($optionKey) {
+            $option = Arr::first($options, function ($option) use ($optionKey) {
                 return $option->getAttribute('value') === $optionKey;
             });
             $this->assertNotNull($option);
