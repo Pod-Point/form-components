@@ -1,7 +1,5 @@
 # Form Components
 
-[![Build Status](https://travis-ci.org/Pod-Point/form-components.svg?branch=master)](https://travis-ci.org/Pod-Point/form-components)
-
 Commonly used form components to make it easier and more flexible to create forms in [Blade](https://laravel.com/docs/master/blade) views.
 
 It is intended to be usable by anyone.
