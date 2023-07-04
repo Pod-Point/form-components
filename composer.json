@@ -4,7 +4,7 @@
     "keywords": ["php", "laravel", "blade", "form", "components"],
     "type": "library",
     "require": {
-        "php": "^7.4 || ^8.2",
+        "php": "^7.4 || ^8.1",
         "ext-dom": "*",
         "illuminate/view": "^6.20 || ^7.30 || ^8.83 || ^9.52 || ^10.14"
     },
