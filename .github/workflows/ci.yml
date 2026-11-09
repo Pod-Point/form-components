@@ -20,22 +20,22 @@ jobs:
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Force Laravel version
+        run: composer require illuminate/view:${{ matrix.laravel }} --no-interaction --no-update
 
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
           php_version: "${{ matrix.php }}"
 
-      - name: Force Laravel version
-        run: composer require illuminate/view:${{ matrix.laravel }} --no-interaction --no-update
-
       - name: PHPUnit tests
         uses: php-actions/phpunit@v3
         env:
           XDEBUG_MODE: coverage
         with:
-          version: ${{ matrix.php == 7.4 && '9' || 'latest'}}
+          version: '9'
           php_version: "${{ matrix.php }}"
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml.dist
