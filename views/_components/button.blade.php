@@ -8,9 +8,11 @@
 
 <{{ $element }}
     class="{{ $classes['input'] }}"
-    id="{{ $name }}"
-    @if ($element === 'button')
-        name="{{ $name }}"
+    @if ($name !== '')
+        id="{{ $name }}"
+        @if ($element === 'button')
+            name="{{ $name }}"
+        @endif
     @endif
     @include('form::_components.attributes')
 >
