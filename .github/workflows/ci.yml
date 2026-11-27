@@ -6,34 +6,45 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [ 7.4, 8.1 ]
+        php: [ '8.1', '8.3' ]
         include:
-          - php: 7.4
-            laravel: 6.20
-          - php: 8.1
-            laravel: 10.14
+          - php: '8.1'
+            laravel: '10.14'
+          - php: '8.3'
+            laravel: '12.0'
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Allow end-of-life Laravel versions
+        # Every Laravel 11-and-older release has security advisories that are only fixed in
+        # Laravel 12+, so Composer refuses to install them. Turn the block off for these CI
+        # jobs only, so we can still check compatibility. Apps installing this package keep
+        # Composer's advisory checks.
+        if: ${{ !contains(matrix.laravel, '12') }}
+        run: >-
+          php -r '$f = "composer.json"; $j = json_decode(file_get_contents($f), true);
+          $j["config"]["policy"]["advisories"]["block"] = false;
+          file_put_contents($f, json_encode($j, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));'
+
+      - name: Force Laravel version
+        run: composer require illuminate/view:${{ matrix.laravel }} --no-interaction --no-update
 
       - name: Install dependencies
         uses: php-actions/composer@v6
         with:
           php_version: "${{ matrix.php }}"
 
-      - name: Force Laravel version
-        run: composer require illuminate/view:${{ matrix.laravel }} --no-interaction --no-update
-
       - name: PHPUnit tests
         uses: php-actions/phpunit@v3
         env:
           XDEBUG_MODE: coverage
         with:
-          version: ${{ matrix.php == 7.4 && '9' || 'latest'}}
+          version: '9'
           php_version: "${{ matrix.php }}"
           bootstrap: vendor/autoload.php
           configuration: phpunit.xml.dist
